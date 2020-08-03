@@ -25,8 +25,6 @@ import java.util.HashMap;
 public class mDataAdapter extends RecyclerView.Adapter<mDataAdapter.MyViewHolder> {
     private ArrayList<HashMap<String, String>> dataSet;
     Context context;
-   // private String[] urldata;
-
 
     public mDataAdapter(Context context,ArrayList< HashMap<String, String>> dataSet) {
         this.dataSet = dataSet;

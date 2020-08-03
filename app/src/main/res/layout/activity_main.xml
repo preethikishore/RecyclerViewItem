@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#50C4D3"
+    android:background="#8B4513"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="List"
+        android:text="Birds"
         android:textColor="#FFFFFF"
         android:textSize="30dp"
         android:textStyle="bold|italic" />
@@ -21,9 +21,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
         />
 

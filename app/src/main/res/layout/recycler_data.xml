@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#50C4D3"
+        android:background="#8B4513"
         >
 
 
@@ -21,9 +21,7 @@
             android:padding="2dp"
             />
 
-        <Space
-            android:layout_width="2dp"
-            android:layout_height="wrap_content" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,30 +37,31 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 />
-            <Space
-                android:layout_width="2dp"
-                android:layout_height="wrap_content" />
+
 
             <Button
                 android:id="@+id/website"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#8B4513"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="Visit"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
+
             <Button
                 android:id="@+id/share"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#8B4513"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="Share"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
 
 
         </LinearLayout>
