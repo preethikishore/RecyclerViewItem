@@ -14,13 +14,13 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     String[] url = {
-            "http://www.google.com",
-            "http://www.amazon.com",
-            "http://www.google.com",
-            "http://www.amazon.com"};
-    String[] countryName = {"INDIA","USA","UK","FRANCE"};
+            "https://en.wikipedia.org/wiki/Mourning_dove",
+            "https://en.wikipedia.org/wiki/Macaw",
+            "https://en.wikipedia.org/wiki/Peafowl",
+            };
+    String[] birds = {"Dove Bird","Macaw","Peacock",};
     private RecyclerView.Adapter DataAdapter;
-    int [] flag = { R.drawable.india,R.drawable.usa,R.drawable.uk,R.drawable.france};
+    int [] birds_image = { R.drawable.dove,R.drawable.macaw,R.drawable.peacock};
     static ArrayList<HashMap<String, String>> dataItem;
     HashMap<String, String> map;
 
@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         dataItem = new ArrayList<>();
 
-        for (int i = 0; i < countryName.length ; i++) {
+        for (int i = 0; i < birds.length ; i++) {
 
             map = new HashMap<String, String>();
-            map.put("CName", countryName[i]);
-            map.put("Cflag", flag[i] + "");
-            map.put("Curl",url[i]);
+            map.put("Bname", birds[i]);
+            map.put("Bimage", birds_image[i] + "");
+            map.put("Burl",url[i]);
             dataItem.add(map);
         }
         DataAdapter = new mDataAdapter(getApplicationContext(),dataItem);

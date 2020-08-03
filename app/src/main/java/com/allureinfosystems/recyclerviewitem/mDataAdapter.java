@@ -2,6 +2,8 @@ package com.allureinfosystems.recyclerviewitem;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -38,17 +45,32 @@ public class mDataAdapter extends RecyclerView.Adapter<mDataAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final HashMap<String, String> Details = dataSet.get(position);
-        holder.country.setText(Details.get("CName"));
-        holder.flag.setImageResource(Integer.parseInt((Details.get("Cflag"))));
+        holder.birdName.setText(Details.get("Bname"));
+        holder.birdImage.setImageResource(Integer.parseInt((Details.get("Bimage"))));
 
-        holder.visit.setOnClickListener(new View.OnClickListener() {
+        holder.visitLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                final String website = Details.get("Curl");
-              //  Log.i("Clicked site ",website);
+                final String website = Details.get("Burl");
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
                 context.startActivity(browserIntent);
+
+            }
+        });
+
+        holder.share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_SEND);
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                intent.putExtra(Intent.EXTRA_TEXT , "Vist This Link more Details \n"  +  Details.get("Burl"));
+                intent.setType("text/plain");
+                context.startActivity(intent);
+
 
 
             }
@@ -63,18 +85,21 @@ public class mDataAdapter extends RecyclerView.Adapter<mDataAdapter.MyViewHolder
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView country;
-        ImageView flag;
-        Button visit;
+        TextView birdName;
+        ImageView birdImage;
+        Button visitLink;
+        Button share;
+
 
 
 
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            country = (TextView) itemView.findViewById(R.id.countryname);
-            flag = (ImageView) itemView.findViewById(R.id.flagname);
-            visit = (Button) itemView.findViewById(R.id.website);
+            birdName = (TextView) itemView.findViewById(R.id.birdname);
+            birdImage = (ImageView) itemView.findViewById(R.id.birdimage);
+            visitLink = (Button) itemView.findViewById(R.id.website);
+            share = (Button) itemView.findViewById(R.id.share);
 
         }
     }
