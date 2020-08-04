@@ -89,9 +89,6 @@ public class mDataAdapter extends RecyclerView.Adapter<mDataAdapter.MyViewHolder
         Button share;
 
 
-
-
-
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
             birdName = (TextView) itemView.findViewById(R.id.birdname);
